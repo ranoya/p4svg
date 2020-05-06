@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="./p4svg.js"></script>
+</head>
+
+
+<body>
+
+
+<svg id="example" style="width: 300px; height: 300px;"></svg>
+<div id="divelem" style="width: 300px; height: 300px;"></div>
+
+<script>
+
+handler = new p4svg("noplace");
+examplehandler = new p4svg("example");
+ondivhandler = new p4svg("divelem");
+
+/* -------------------------------- */
+
+handler.draw = function() {
+
+	this.background("#FF0022");
+	this.fill("blue");
+	this.strokeWeight(10);
+	this.stroke("white");
+	this.circle(80,50,80);
+	this.noLoop();
+
+};
+
+/* -------------------------------- */
+
+ondivhandler.draw = function() {
+
+	this.background("#ddd");
+	this.fill("green");
+	this.stroke("transparent");
+	this.circle("50%",40,30);
+	this.noLoop();
+
+};
+
+
+/* -------------------------------- */
+
+px = 1;
+examplehandler.draw = function() {
+
+	
+	this.strokeWeight(5);
+	this.circle(px,90,70);
+	px = px + 10;
+
+	if (px > 300) {
+		this.fill("black");
+	}
+
+	if (px > 400) {
+
+		this.noLoop();
+	}
+	
+};
+
+
+</script>
+
+</body>
+
+</html>
