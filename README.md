@@ -7,3 +7,6 @@ It is being designed so that people with some familiarity in Processing / P5.js 
 What is the use of this? I have no idea. But it may be useful.
 
 Contributions in mirroring the Processing API to SVG / XML tags will be highly appreciated. They are pure manual labor.
+
+Working example at my [https://www.ranoya.com/p4svg](https://www.ranoya.com/p4svg)
+(inspect the code in your browser to see the svg tags created and the javascript code that created them)
