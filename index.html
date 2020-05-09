@@ -1,72 +1,48 @@
 <!DOCTYPE html>
 <html>
-<head>
-<script src="./p4svg.js"></script>
-</head>
+  <head>
+    <script src="./p4svg.js"></script>
+  </head>
 
+  <body>
+    <svg id="example" style="width: 300px; height: 300px;"></svg>
+    <div id="divelem" style="width: 300px; height: 300px;"></div>
 
-<body>
+    <script>
+      p4svg("noplace")
+        .background("#FF0022")
+        .fill("blue")
+        .strokeWeight(10)
+        .stroke("white")
+        .circle(80, 50, 80)
+        .draw();
 
+      /* -------------------------------- */
 
-<svg id="example" style="width: 300px; height: 300px;"></svg>
-<div id="divelem" style="width: 300px; height: 300px;"></div>
+      p4svg("divelem")
+        .background("#ddd")
+        .fill("green")
+        .stroke("transparent")
+        .circle("50%", 40, 30)
+        .draw();
 
-<script>
+      /* -------------------------------- */
 
-handler = new p4svg("noplace");
-examplehandler = new p4svg("example");
-ondivhandler = new p4svg("divelem");
+      px = 1;
+      p4svg("example").loop((m) => {
+        m.strokeWeight(5);
+        m.circle(px, 90, 70);
+        px = px + 10;
 
-/* -------------------------------- */
+        if (px > 300) {
+          m.fill("black");
+        }
 
-handler.draw = function() {
-
-	this.background("#FF0022");
-	this.fill("blue");
-	this.strokeWeight(10);
-	this.stroke("white");
-	this.circle(80,50,80);
-	this.noLoop();
-
-};
-
-/* -------------------------------- */
-
-ondivhandler.draw = function() {
-
-	this.background("#ddd");
-	this.fill("green");
-	this.stroke("transparent");
-	this.circle("50%",40,30);
-	this.noLoop();
-
-};
-
-
-/* -------------------------------- */
-
-px = 1;
-examplehandler.draw = function() {
-
-	
-	this.strokeWeight(5);
-	this.circle(px,90,70);
-	px = px + 10;
-
-	if (px > 300) {
-		this.fill("black");
-	}
-
-	if (px > 400) {
-
-		this.noLoop();
-	}
-	
-};
-
-
-</script>
-
-</body>
-
+        if (px > 400) {
+          m.noLoop();
+        }
+        return m;
+      });
+    </script>
+  </body>
 </html>
